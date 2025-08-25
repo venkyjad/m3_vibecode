@@ -133,23 +133,54 @@ module.exports = async (req, res) => {
             .replace('{budget}', budget || 'Medium')
             .replace('{assets}', assets || 'Logo and brand colors available');
 
-        const completion = await openai.chat.completions.create({
-            model: "gpt-4",
-            messages: [
-                { role: "system", content: SYSTEM_PROMPT },
-                { role: "user", content: userPrompt }
-            ],
-            temperature: 0.7,
-            max_tokens: 1500
-        });
+        // Validate OpenAI API key
+        if (!process.env.OPENAI_API_KEY) {
+            console.error('OpenAI API key not found');
+            return res.status(500).json({
+                error: 'OpenAI API key not configured'
+            });
+        }
+
+        let completion;
+        try {
+            completion = await openai.chat.completions.create({
+                model: "gpt-4",
+                messages: [
+                    { role: "system", content: SYSTEM_PROMPT },
+                    { role: "user", content: userPrompt }
+                ],
+                temperature: 0.7,
+                max_tokens: 1500
+            });
+        } catch (openaiError) {
+            console.error('OpenAI API error:', openaiError);
+            return res.status(500).json({
+                error: 'Failed to call OpenAI API',
+                details: openaiError.message
+            });
+        }
+
+        // Validate OpenAI response
+        if (!completion || !completion.choices || !completion.choices[0] || !completion.choices[0].message) {
+            console.error('Invalid OpenAI response structure:', completion);
+            return res.status(500).json({
+                error: 'Invalid response from OpenAI'
+            });
+        }
+
+        const rawContent = completion.choices[0].message.content;
+        console.log('Raw OpenAI response:', rawContent.substring(0, 200) + '...');
 
         let campaignDraft;
         try {
-            campaignDraft = JSON.parse(completion.choices[0].message.content);
+            campaignDraft = JSON.parse(rawContent);
         } catch (parseError) {
             console.error('Failed to parse OpenAI response:', parseError);
+            console.error('Raw content that failed to parse:', rawContent);
             return res.status(500).json({
-                error: 'Failed to generate structured campaign'
+                error: 'Failed to generate structured campaign',
+                details: 'OpenAI response was not valid JSON',
+                raw_response: rawContent.substring(0, 500)
             });
         }
 
