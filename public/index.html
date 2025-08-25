@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohtawa - Marketing Brief Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>MOHTAWA</h1>
+                    <span class="ai-suite">AI Suite</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active">Brief Builder</a>
+                    <a href="#" class="nav-link">Freelancers</a>
+                    <a href="#" class="nav-link">Stock</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Step 1: Brief Form -->
+            <div id="briefForm" class="screen active">
+                <div class="container">
+                    <div class="screen-header">
+                        <h2>Create Marketing Brief</h2>
+                        <p>Build a comprehensive marketing campaign in minutes</p>
+                    </div>
+
+                    <form id="briefBuilderForm" class="brief-form">
+                        <div class="form-section">
+                            <h3>Business Objectives</h3>
+                            <div class="form-group">
+                                <label for="objective">What's your main business objective?</label>
+                                <textarea 
+                                    id="objective" 
+                                    name="objective" 
+                                    placeholder="e.g., Launch new product line, increase brand awareness, drive e-commerce sales..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="category">Brand Category</label>
+                                    <select id="category" name="category" required>
+                                        <option value="">Select category</option>
+                                        <option value="fashion">Fashion & Beauty</option>
+                                        <option value="food">Food & Beverage</option>
+                                        <option value="technology">Technology</option>
+                                        <option value="real_estate">Real Estate</option>
+                                        <option value="travel">Travel & Tourism</option>
+                                        <option value="automotive">Automotive</option>
+                                        <option value="healthcare">Healthcare</option>
+                                        <option value="finance">Finance</option>
+                                        <option value="education">Education</option>
+                                        <option value="entertainment">Entertainment</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="region">Target Region</label>
+                                    <select id="region" name="region">
+                                        <option value="Global">Global</option>
+                                        <option value="UAE">UAE</option>
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                        <option value="Egypt">Egypt</option>
+                                        <option value="Morocco">Morocco</option>
+                                        <option value="Lebanon">Lebanon</option>
+                                        <option value="Jordan">Jordan</option>
+                                        <option value="Qatar">Qatar</option>
+                                        <option value="Kuwait">Kuwait</option>
+                                        <option value="Bahrain">Bahrain</option>
+                                        <option value="Oman">Oman</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Target Audience</h3>
+                            <div class="form-group">
+                                <label for="audience">Describe your target audience</label>
+                                <textarea 
+                                    id="audience" 
+                                    name="audience" 
+                                    placeholder="e.g., Young professionals aged 25-35, tech-savvy, urban, interested in sustainable fashion..."
+                                    required
+                                ></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Campaign Details</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="channels">Primary Channels</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="channels" value="instagram">
+                                            <span class="checkmark"></span>
+                                            Instagram
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="channels" value="facebook">
+                                            <span class="checkmark"></span>
+                                            Facebook
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="channels" value="tiktok">
+                                            <span class="checkmark"></span>
+                                            TikTok
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="channels" value="linkedin">
+                                            <span class="checkmark"></span>
+                                            LinkedIn
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="channels" value="youtube">
+                                            <span class="checkmark"></span>
+                                            YouTube
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="channels" value="website">
+                                            <span class="checkmark"></span>
+                                            Website
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="formats">Content Formats</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="formats" value="photo">
+                                            <span class="checkmark"></span>
+                                            Photography
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="formats" value="video">
+                                            <span class="checkmark"></span>
+                                            Video
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="formats" value="design">
+                                            <span class="checkmark"></span>
+                                            Graphic Design
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="tone">Tone of Voice</label>
+                                    <select id="tone" name="tone">
+                                        <option value="Professional">Professional</option>
+                                        <option value="Casual">Casual & Friendly</option>
+                                        <option value="Luxurious">Luxurious & Premium</option>
+                                        <option value="Playful">Playful & Fun</option>
+                                        <option value="Inspirational">Inspirational</option>
+                                        <option value="Authoritative">Authoritative</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="budget">Budget Band</label>
+                                    <select id="budget" name="budget">
+                                        <option value="low">Low ($1K - $5K)</option>
+                                        <option value="medium" selected>Medium ($5K - $15K)</option>
+                                        <option value="high">High ($15K+)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="timeline">Timeline</label>
+                                    <select id="timeline" name="timeline">
+                                        <option value="1 week">1 week</option>
+                                        <option value="2 weeks">2 weeks</option>
+                                        <option value="4 weeks" selected>4 weeks</option>
+                                        <option value="8 weeks">8 weeks</option>
+                                        <option value="12 weeks">12 weeks</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="assets">Brand Assets Available</label>
+                                    <textarea 
+                                        id="assets" 
+                                        name="assets" 
+                                        placeholder="e.g., Logo files, brand guidelines, color palette, existing photography..."
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                Generate Campaign Brief
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Step 2: Campaign Results -->
+            <div id="campaignResults" class="screen">
+                <div class="container">
+                    <div class="screen-header">
+                        <h2>Your Campaign Strategy</h2>
+                        <button id="backToForm" class="btn btn-secondary">← Edit Brief</button>
+                    </div>
+
+                    <div id="campaignContent" class="campaign-results">
+                        <!-- Generated content will be inserted here -->
+                    </div>
+
+                    <div class="form-actions">
+                        <button id="findCreatives" class="btn btn-primary">
+                            Find Matching Creatives
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Creative Matches -->
+            <div id="creativeMatches" class="screen">
+                <div class="container">
+                    <div class="screen-header">
+                        <h2>Recommended Creatives</h2>
+                        <button id="backToCampaign" class="btn btn-secondary">← Back to Campaign</button>
+                    </div>
+
+                    <div id="matchesContent" class="matches-results">
+                        <!-- Creative matches will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Generating your campaign strategy...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
